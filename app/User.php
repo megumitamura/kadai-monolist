@@ -37,7 +37,7 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
     
-        public function items()
+    public function items()
     {
         return $this->belongsToMany(Item::class)->withPivot('type')->withTimestamps();
     }

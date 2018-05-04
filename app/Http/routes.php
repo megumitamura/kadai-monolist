@@ -12,9 +12,6 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // ユーザ登録
 Route::get('signup', 'Auth\AuthController@getRegister')->name('signup.get');
