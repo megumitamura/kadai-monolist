@@ -69,7 +69,7 @@ class ItemUserController extends Controller
             'image_url' => str_replace('?_ex=128x128', '', $rws_item['mediumImageUrls'][0]['imageUrl']),
         ]);
 
-        \Auth::user()->want($item->id);
+        \Auth::user()->have($item->id);
 
         return redirect()->back();
     }
@@ -78,9 +78,9 @@ class ItemUserController extends Controller
     {
         $itemCode = request()->itemCode;
 
-        if (\Auth::user()->is_wanting($itemCode)) {
+        if (\Auth::user()->is_haveing($itemCode)) {
             $itemId = Item::where('code', $itemCode)->first()->id;
-            \Auth::user()->dont_want($itemId);
+            \Auth::user()->dont_have($itemId);
         }
         return redirect()->back();
     }
